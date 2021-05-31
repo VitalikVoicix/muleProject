@@ -14,6 +14,7 @@ http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mu
 		<validation:is-true doc:name="Is valid destination" doc:id="ed8bf6ce-f6a6-464c-aba8-41ca9f7b1648" expression="#[['SFO','LAX','CLE','PDX','PDF'] contains vars.code]" message="#['Invalid destination' ++ ' ' ++ (vars.code default ' ')]">
 			<error-mapping sourceType="VALIDATION:INVALID_BOOLEAN" targetType="APP:INVALID_DESTINATION" />
 		</validation:is-true>
+		<logger level="INFO" doc:name="Logger" doc:id="5250e379-8278-4469-a561-95d2e06496dc" />
 		<choice doc:name="Choice" doc:id="2c467cc5-b76c-4f9a-b4c6-a008e276b504" >
 			<when expression='#[vars.airline == "american"]'>
 				<flow-ref doc:name="getAmericanFlights" doc:id="138f0499-66b2-4395-9c60-91ce21ffe9ca" name="getAmericanFlights"/>
